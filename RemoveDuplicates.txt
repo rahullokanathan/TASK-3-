@@ -1,0 +1,48 @@
+// Getting input via STDIN
+//Remove Duplicate elements in an array by Nagarajan - Anonymous
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>{
+    let removeDuplicates = function(data){
+        let unique=[];
+        data.forEach(element =>{
+            if(!unique.includes(element))unique.push(element)
+        });
+        return unique;
+    }
+    let n = userInput[0];
+    let a = userInput[1].split(" ");
+    console.log(removeDuplicates(a));
+});
+
+
+// Getting input via STDIN
+//Remove Duplicate elements in an array by Nagarajan - IIFE
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>
+{
+    let n = userInput[0];
+    let a = userInput[1].split(" ");
+    console.log((function(data){
+        let unique=[];
+        data.forEach(element =>{
+            if(!unique.includes(element))unique.push(element)
+        });
+        return unique;
+    })(a));
+});

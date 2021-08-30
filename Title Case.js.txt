@@ -1,0 +1,48 @@
+// Getting input via STDIN
+//Title case of a string by Nagarajan - Anonymous
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>{
+    
+    let titlecase = function(){
+    let n = userInput[0].split(" ");
+    console.log(n);
+    for(let i=0;i<n.length;i++)
+    {
+        n[i]=n[i].charAt(0).toUpperCase()+n[i].slice(1);
+    }
+    console.log(n.join(" "));}
+    
+    titlecase();
+});
+
+
+// Getting input via STDIN
+//Title case of a string by Nagarajan - IIFE
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>{
+    
+    (function(){
+    let n = userInput[0].split(" ");
+    console.log(n);
+    for(let i=0;i<n.length;i++)
+    {
+        n[i]=n[i].charAt(0).toUpperCase()+n[i].slice(1);
+    }
+    console.log(n.join(" "));})();
+});

@@ -1,0 +1,56 @@
+// Getting input via STDIN
+//Rotate elements in an array by Nagarajan - Anonymous
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>
+{
+    let arr = userInput[0].split(" ");
+    let n = parseInt(arr[0]);
+    let k = parseInt(arr[1]);
+    let a = userInput[1].split(" ");
+    
+    let rotate = function(){
+        let i=0;
+        while(i<k){
+            a.unshift(a.pop());
+            i++;
+        }
+        return a;
+    }
+    console.log(rotate());
+});
+
+
+// Getting input via STDIN
+//Rotate elements in an array by Nagarajan - IIFE
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>
+{
+    let arr = userInput[0].split(" ");
+    let n = parseInt(arr[0]);
+    let k = parseInt(arr[1]);
+    let a = userInput[1].split(" ");
+    console.log((function(){
+        let i=0;
+        while(i<k){
+            a.unshift(a.pop());
+            i++;
+        }
+        return a;
+    })());
+});

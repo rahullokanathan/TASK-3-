@@ -1,0 +1,66 @@
+// Getting input via STDIN
+//Prime numbers in an array by Nagarajan - Anonymous
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>{
+    let test_prime = function(n)
+    {
+        for(let i=2;i<=Math.sqrt(n);i++)
+        {
+            if(n%i===0)
+                return false;
+        }
+        return true;
+    }
+    let n = parseInt(userInput[0]);
+    let a = userInput[1].split(" ");
+    let op=""
+    for(i=0;i<n;i++)
+    {
+        if(test_prime(parseInt(a[i])))
+        {
+            op=op+a[i]+" ";
+        }
+    }
+    console.log(op.trim());
+});
+
+
+
+// Getting input via STDIN
+//Prime numbers in an array by Nagarajan - IIFE
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>{
+    let n = parseInt(userInput[0]);
+    let a = userInput[1].split(" ");
+    let op=""
+    for(i=0;i<n;i++)
+    {
+        let x = parseInt(a[i]);
+        if((function(){
+            for(let i=2;i<=Math.sqrt(x);i++){
+                if(x%i===0)
+                    return false;
+                }
+            return true;})())
+        {
+            op=op+a[i]+" ";
+        }
+    }
+    console.log(op.trim());
+});

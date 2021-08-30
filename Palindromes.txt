@@ -1,0 +1,49 @@
+// Getting input via STDIN
+//Palindrome in an array by Nagarajan - IIFE
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>{
+    let checkPalindrome = function(str){
+        if(str===str.split("").reverse().join(""))return true;
+        else return false;}
+        
+    let n = parseInt(userInput[0]);
+    let a = userInput[1].split(" ");
+    let op=""
+    for(let i=0;i<n;i++){
+    if(checkPalindrome(a[i])) op=op+a[i]+" ";
+}
+    
+    console.log(op.trim());
+});
+
+// Getting input via STDIN
+//Palindrome in an array by Nagarajan - IIFE
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>{
+    let n = parseInt(userInput[0]);
+    let a = userInput[1].split(" ");
+    let op=""
+    for(let i=0;i<n;i++){
+    if((function(str){
+        if(str===str.split("").reverse().join(""))return true;
+        else return false;})(a[i])) op=op+a[i]+" ";
+}
+    
+    console.log(op.trim());
+});

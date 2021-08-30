@@ -1,0 +1,47 @@
+// Getting input via STDIN
+//Median of 2 arrays by Nagarajan - Anonymous
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>
+{
+    let m = function(){
+    let a = userInput[0].split(" ");
+    let b = userInput[1].split(" ");
+    a=a.concat(b).sort(function(x,y){return x-y});
+    console.log((parseInt(a[a.length/2])+parseInt(a[a.length/2 -1]))/2);
+    //console.log(a);
+    }
+    m();
+    
+});
+
+
+// Getting input via STDIN
+//Median of 2 arrays by Nagarajan - IIFE
+const readline = require("readline");
+const inp = readline.createInterface({
+  input: process.stdin
+});
+const userInput = [];
+inp.on("line", (data) => 
+{
+    userInput.push(data);
+});
+inp.on("close",()=>
+{
+    (function(){
+    let a = userInput[0].split(" ");
+    let b = userInput[1].split(" ");
+    a=a.concat(b).sort(function(x,y){return x-y});
+    console.log((parseInt(a[a.length/2])+parseInt(a[a.length/2 -1]))/2);
+    //console.log(a);
+    })();
+    
+});
